@@ -19,7 +19,14 @@ body{
 	margin: 0;
 }
 footer{
-	
+	background: #434343;
+	color: #7A7A7A;
+	padding: 1em 0;
+	text-align: center;
+	width: 100%;
+}
+footer p{
+	margin: 0;
 }
 header{
 	/*border: 1px red solid;*/
