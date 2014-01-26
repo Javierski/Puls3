@@ -1,8 +1,31 @@
 @media screen and (min-width: 768px){
 	body{
-		border: 3px solid red;
+		/*border: 3px solid red;*/
 		margin: 0 auto;
 		max-width: 1200px;
+	}
+	#bienvenida{
+		display: block;
+		border-bottom: 1px solid #CCC;
+		float: right;
+		margin-right: 2%;
+		width: 25%;
+	}
+	#bienvenida h2{
+		color: #434343;
+	}#bienvenida #mesaje_registro,
+	#bienvenida #registro{
+		text-align: center;
+	}
+	#bienvenida #mesaje_registro{
+		font-size: 0.8em;
+	}
+	#bienvenida #registro{
+		background: #22BEC0;
+		display: block;
+		color: white;
+		font-size: 1.2;
+		padding: 0.5em 0;
 	}
 	#contenido{
 		width: 70%;
