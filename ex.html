@@ -1,0 +1,66 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="tabla.css">
+	</head>
+	<body>
+		<div class="datagrid">
+			<?php
+			$buscar=$_POST['buscar'];
+
+			include("conectar.php");
+
+			$sql="SELECT * FROM usuario WHERE NOMBRE LIKE '%".$buscar."%' ORDER BY id_usuario";
+
+			$result=mysql_query($sql) or die (mysql_error());
+
+			if (isset($_POST['enviar'])) {
+
+			if ($buscar=="") {
+
+			echo "Debe de especificar una cadena";
+			echo "<a href='formulario.php'>Volver a Buscar</a>";
+			exit;
+			}
+
+			if ($row=mysql_fetch_array($result)) {
+			echo "<table border='1' width='50%'";
+			mysql_field_seek($result,0);
+			while ($field=mysql_fetch_field($result)) {
+
+			}
+
+			echo "<thead>\n";
+			echo '<tr>';
+			echo '<th width=5%>'."id".'</th>';
+			echo '<th width=15%>'."NOMBRE".'</th>';
+			echo '<th width=15%>'."DIRECCION".'</th>';
+			echo '<th width=15%>'."TELEFONO".'</th>';
+			echo '<th width=15%>'."EMAIL".'</th>';
+			echo '</tr>';
+			echo '</tr>';
+			echo "</thead>\n";
+
+			do{
+			echo "<tr>";
+			echo "<td width='5%'>".$row["id_usuario"]."</td> \n";
+			echo "<td>".$row["NOMBRE"]."</td> \n";
+			echo "<td>".$row["DIRECCION"]."</td> \n";
+			echo "<td>".$row["TELEFONO"]."</td> \n";
+			echo "<td>".$row["EMAIL"]."</td> \n";
+			echo "</tr>";
+			}
+
+			while ($row=mysql_fetch_array($result));
+
+			echo "<a href='formulario.php'>VOLVER</a>";
+
+			}else{
+
+			echo "No se enconto el registro solicitado <a href='formulario.php'>Volver</a>";
+
+			}
+
+			?>
+		</div>
+	</body>
+</html>
